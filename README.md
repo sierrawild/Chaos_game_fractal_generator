@@ -27,31 +27,32 @@ You will need pygame-ce installed to run this project.
 Open project.py and run it. No extra setup. All controls are on the screen in the UI panel.
 
 ##### Controls:
-Arrow up: Adds a side to the main polygon
+Up Arrow: add a side to the main polygon
 
-Arrow down: Subtracts a side from the main polygon
+Down Arrow: remove a side from the main polygon
 
-Arrow left: -10 speed
+Left Arrow: decrease drawing speed
 
-Arrow right: +10 speed
+Right Arrow: increase drawing speed
 
-Right bracket: +0.1 ratio
+Right bracket: increase ratio by 0.1
 
-Left bracket: -0.1 ratio
+Left bracket: decrease ratio by 0.1
 
-Plus sign above the bracket: +0.01 ratio
+=: increase ratio by 0.01
 
-Minus sign above the bracket: -0.01 ratio
+-: decrease ratio by 0.01
 
-P: Change colours by choosing a random palette
+P: change colour palette
 
-R: Reset the whole drawing
+R: reset the drawing
 
-B: Show/hide the main polygon
+B: show/hide the main polygon
 
-Space: Pause
+H: show/hide UI
 
-Note that speed is printed to the console when you press the right or left arrow. It does not appear in the UI.
+Space: pause/resume
+
 
 Fine adjustments to the ratio are not in the UI, so congratulations on reading the README file and finding the Easter egg.
 
