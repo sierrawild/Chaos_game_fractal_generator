@@ -1,6 +1,7 @@
+import asyncio
 import pygame, random, math, palettes
 
-def main():
+async def main():
     ### variables
     paused = False
     border = True
@@ -28,7 +29,7 @@ def main():
     backdrop_w, backdrop_h = 0, 0
     
     ### screen setup ###
-    screen = pygame.display.set_mode((1600, 900), pygame.RESIZABLE) # Main surface where the main polygon is being drawn
+    screen = pygame.display.set_mode((1600, 900)) # Main surface where the main polygon is being drawn
     screen_width, screen_height = screen.get_size()
     fractal_surface = pygame.Surface((screen_width, screen_height))# surface where dots are being drawn
     fractal_surface.fill(pygame.Color(palette["bg"])) # its being filled once before the loop as I dont want it to wipe out the dots
@@ -39,15 +40,6 @@ def main():
     ### main loop ###
     running = True
     while running:
-        ### resizing the window ###
-        old_width, old_height = screen_width, screen_height
-        screen_width, screen_height = screen.get_size() # keep inside the loop to keep updated
-        if old_width != screen_width or old_height != screen_height: # checks if the screen was resized
-            
-            fractal_surface = pygame.Surface((screen_width, screen_height))# surface where dots are being drawn
-            iteration = reset_fractal(fractal_surface, palette, skip_first_iterations)
-            center_point = [screen_width /2, screen_height /2]
-            current_position = center_point
             
         # variables inside the loop to update after screen resize
         radius = min(screen_width, screen_height) * 0.45
@@ -147,7 +139,6 @@ def main():
                     
                     dot_color.hsva = (h,new_s,new_v,a)
                     pygame.draw.circle(fractal_surface, dot_color, current_position, radius=1)
-
         screen.blit(fractal_surface, (0,0))
 
         if paused:
@@ -234,11 +225,12 @@ def main():
                     backdrop_w = text_width
         
         
-        pygame.display.flip() # flip() the display to put your work on screen
+        pygame.display.flip()
+        await asyncio.sleep(0)
+        
 
         clock.tick(frames)  # limits FPS 
 
-    pygame.quit()
     
 def reset_fractal(fractal_surface, palette, skip_first_iterations):
     '''Redraws a surface, returns skipped iterations so iterations can be reset as well'''
@@ -266,7 +258,7 @@ def get_polygon_name(sides):
     '''Gets the name of the polygon based on the number of its sides'''
 
     shape_names = {
-    "3": "Sierpiński triangle",
+    "3": "Sierpinski triangle",
     "4": "Square",
     "5": "Pentagon",
     "6": "Hexagon",
@@ -338,4 +330,4 @@ def main_polygon(sides, radius, center_x, center_y):
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
