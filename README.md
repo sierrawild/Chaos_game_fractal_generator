@@ -108,3 +108,7 @@ Boolean = not Boolean is a nifty trick to have an on and off switch with a minim
 I was watching some videos, and a mathematical channel that I follow explained the rules. I bet myself that I could make it without looking up any solutions. First I made it in the turtle module. When I look back at that project, there were some design choices that today I can only call questionable. This is the reason why I used the Pythagorean theorem first, as I did not know about linear interpolation (lerp) at the time. This is what fascinates me about programming and doing those projects. I can dive into a topic and then use it in my own projects instead of filing it as trivia that I can tell in a social gathering.
 
 Another interesting thing I have learned by practice is that turtle treats everything as an object. My first version would slow down with the amount of dots on the screen. I adjusted it in code by drawing more dots at the same time, but that changed the way the fractal appeared on the screen. I had difficulties reaching over 100k dots. Using pygame allowed me to draw them on a surface, and I can easily draw over 1 million dots without a struggle.
+
+##### Upcoming changes:
+- Hide / Unhide UI
+- Screenshot 
