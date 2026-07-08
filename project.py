@@ -105,16 +105,16 @@ def main():
                     
                 # ratio
                 elif event.key == pygame.K_EQUALS:
-                    ratio = clamp(ratio + 0.01, 0, 10)
+                    ratio = clamp(ratio + 0.01, 0, 2)
                     
                 elif event.key == pygame.K_MINUS:
-                    ratio = clamp(ratio - 0.01, 0, 10)
+                    ratio = clamp(ratio - 0.01, 0, 2)
                     
                 elif event.key == pygame.K_RIGHTBRACKET:
-                    ratio = clamp(ratio + 0.1, 0, 10)
+                    ratio = clamp(ratio + 0.1, 0, 2)
                     
                 elif event.key == pygame.K_LEFTBRACKET:
-                    ratio = clamp(ratio - 0.1, 0, 10)
+                    ratio = clamp(ratio - 0.1, 0, 2)
                     
                 # save screenshot 
                 elif event.key == pygame.K_s:
